@@ -1,11 +1,11 @@
 {
-    "Group": "Example",
-    "Name": "ExamplePlugin",
-    "Version": "0.0.2",
-    "Description": "An example plugin for HyTale!",
+    "Group": "scot.oskar",
+    "Name": "permissible",
+    "Version": "0.0.1",
+    "Description": "Easy permission plugin",
     "Authors": [
         {
-            "Name": "It's you!"
+            "Name": "oskarscot"
         }
     ],
     "Website": "example.org",
@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "org.example.plugin.ExamplePlugin",
+    "Main": "scot.oskar.permissible.PermissiblePlugin",
     "IncludesAssetPack": true
 }
