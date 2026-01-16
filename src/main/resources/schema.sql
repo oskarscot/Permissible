@@ -27,3 +27,14 @@ CREATE TABLE IF NOT EXISTS group_permissions (
 
 CREATE INDEX IF NOT EXISTS idx_group_permissions_name ON group_permissions(group_name);
 CREATE INDEX IF NOT EXISTS idx_group_permissions_permission ON group_permissions(permission);
+
+CREATE TABLE IF NOT EXISTS group_metadata (
+    id BIGSERIAL PRIMARY KEY,
+    group_name VARCHAR(255) NOT NULL UNIQUE,
+    weight INT NOT NULL DEFAULT 0,
+    prefix VARCHAR(255),
+    suffix VARCHAR(255),
+    display_name VARCHAR(255)
+);
+
+CREATE INDEX IF NOT EXISTS idx_group_metadata_name ON group_metadata(group_name);

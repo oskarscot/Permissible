@@ -1,0 +1,7 @@
+$C = "../Common.ui";
+
+Group {
+  $C.@HeaderTextButton #NavTab {
+    Text: "";
+  }
+}

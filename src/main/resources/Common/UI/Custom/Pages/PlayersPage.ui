@@ -1,0 +1,206 @@
+$C = "../Common.ui";
+
+@CompactButtonStyle = TextButtonStyle(
+  Default: (
+    Background: (Color: #2a3a4a),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Hovered: (
+    Background: (Color: #364858),
+    LabelStyle: (FontSize: 13, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Pressed: (
+    Background: (Color: #1f2a36),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 750, Height: 600);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+
+        $C.@Title {
+          @Text = "Permissible - Players";
+        }
+
+        Label {
+          FlexWeight: 1;
+        }
+
+        Group #HeaderTabs {
+          LayoutMode: Left;
+          Anchor: (Vertical: 0);
+          Padding: (Right: 10);
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 12);
+
+      // Blue accent bar
+      Group {
+        Anchor: (Height: 3, Left: 0, Right: 0);
+        Background: (Color: #4a6a7c);
+      }
+
+      Group {
+        Anchor: (Height: 12);
+      }
+
+      // Player Permissions section
+      $C.@PanelTitle {
+        @Text = "Player Permissions";
+      }
+
+      Group {
+        LayoutMode: Top;
+        Anchor: (Top: 8, Bottom: 12);
+
+        Group {
+          LayoutMode: Left;
+          Anchor: (Bottom: 6);
+
+          Label {
+            Style: (
+              FontSize: 12,
+              TextColor: #96a9be,
+              VerticalAlignment: Center
+            );
+            Text: "Player:";
+            Anchor: (Width: 60, Vertical: 0);
+          }
+
+          $C.@TextField #PlayerNameField {
+            Anchor: (Height: 32, Width: 200);
+            PlaceholderText: "Player name";
+          }
+
+          Label {
+            Style: (
+              FontSize: 12,
+              TextColor: #96a9be,
+              VerticalAlignment: Center
+            );
+            Text: "Permission:";
+            Anchor: (Left: 12, Width: 80, Vertical: 0);
+          }
+
+          $C.@TextField #PlayerPermissionField {
+            Anchor: (Height: 32, Width: 200);
+            PlaceholderText: "Permission";
+          }
+        }
+
+        Group {
+          LayoutMode: Left;
+          Padding: (Left: 60);
+
+          TextButton #AddPlayerPermissionButton {
+            Anchor: (Height: 28);
+            Padding: (Horizontal: 12, Vertical: 4);
+            Text: "Add Permission";
+            Style: @CompactButtonStyle;
+          }
+
+          TextButton #RemovePlayerPermissionButton {
+            Anchor: (Left: 8, Height: 28);
+            Padding: (Horizontal: 12, Vertical: 4);
+            Text: "Remove Permission";
+            Style: @CompactButtonStyle;
+          }
+        }
+      }
+
+      // Player Groups section
+      $C.@PanelTitle {
+        @Text = "Player Groups";
+      }
+
+      Group {
+        LayoutMode: Top;
+        Anchor: (Top: 8, Bottom: 16);
+
+        Group {
+          LayoutMode: Left;
+          Anchor: (Bottom: 6);
+
+          Label {
+            Style: (
+              FontSize: 12,
+              TextColor: #96a9be,
+              VerticalAlignment: Center
+            );
+            Text: "Player:";
+            Anchor: (Width: 60, Vertical: 0);
+          }
+
+          $C.@TextField #PlayerGroupNameField {
+            Anchor: (Height: 32, Width: 200);
+            PlaceholderText: "Player name";
+          }
+
+          Label {
+            Style: (
+              FontSize: 12,
+              TextColor: #96a9be,
+              VerticalAlignment: Center
+            );
+            Text: "Group:";
+            Anchor: (Left: 12, Width: 60, Vertical: 0);
+          }
+
+          $C.@TextField #PlayerGroupField {
+            Anchor: (Height: 32, Width: 200);
+            PlaceholderText: "Group name";
+          }
+        }
+
+        Group {
+          LayoutMode: Left;
+          Padding: (Left: 60);
+
+          TextButton #AddPlayerGroupButton {
+            Anchor: (Height: 28);
+            Padding: (Horizontal: 12, Vertical: 4);
+            Text: "Add to Group";
+            Style: @CompactButtonStyle;
+          }
+
+          TextButton #RemovePlayerGroupButton {
+            Anchor: (Left: 8, Height: 28);
+            Padding: (Horizontal: 12, Vertical: 4);
+            Text: "Remove from Group";
+            Style: @CompactButtonStyle;
+          }
+        }
+      }
+
+      // Players list section
+      $C.@PanelTitle {
+        @Text = "Online Players";
+      }
+
+      Group #PlayerList {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        Padding: (Top: 8, Left: 8, Right: 8);
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+        Group #PlayerCards {
+          LayoutMode: Top;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}
