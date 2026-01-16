@@ -19,8 +19,6 @@ import java.util.UUID;
 
 public class PermissionRepository {
 
-    public static final String GROUP_PLACEHOLDER_PERMISSION = "__permissible_group_placeholder__";
-
     private final Volt volt;
 
     public PermissionRepository(Volt volt) {

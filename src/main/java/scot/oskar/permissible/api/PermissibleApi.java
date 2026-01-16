@@ -17,4 +17,16 @@ public interface PermissibleApi {
   Map<String, PermissibleGroupInfo> getAllGroupInfo();
 
   void setGroupMetadata(String groupName, GroupMetadataUpdate update);
+
+  void addPlayerPermission(UUID playerUuid, String permission);
+
+  void removePlayerPermission(UUID playerUuid, String permission);
+
+  void setPlayerPermissions(UUID playerUuid, Set<String> permissions);
+
+  void addPlayerToGroup(UUID playerUuid, String groupName);
+
+  void removePlayerFromGroup(UUID playerUuid, String groupName);
+
+  void setPlayerGroups(UUID playerUuid, Set<String> groups);
 }
