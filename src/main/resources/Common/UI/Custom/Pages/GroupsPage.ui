@@ -1,0 +1,160 @@
+$C = "../Common.ui";
+
+@CompactButtonStyle = TextButtonStyle(
+  Default: (
+    Background: (Color: #2a3a4a),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Hovered: (
+    Background: (Color: #364858),
+    LabelStyle: (FontSize: 13, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Pressed: (
+    Background: (Color: #1f2a36),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 750, Height: 600);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+
+        $C.@Title {
+          @Text = "Permissible - Groups";
+        }
+
+        Label {
+          FlexWeight: 1;
+        }
+
+        Group #HeaderTabs {
+          LayoutMode: Left;
+          Anchor: (Vertical: 0);
+          Padding: (Right: 10);
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 12);
+
+      // Green accent bar
+      Group {
+        Anchor: (Height: 3, Left: 0, Right: 0);
+        Background: (Color: #4a7c59);
+      }
+
+      Group {
+        Anchor: (Height: 12);
+      }
+
+      // Group Actions section
+      $C.@PanelTitle {
+        @Text = "Group Actions";
+      }
+
+      Group {
+        LayoutMode: Top;
+        Anchor: (Top: 8, Bottom: 16);
+
+        // Group name field - shared by all operations
+        Group {
+          LayoutMode: Left;
+          Anchor: (Bottom: 8);
+
+          Label {
+            Style: (
+              FontSize: 12,
+              TextColor: #96a9be,
+              VerticalAlignment: Center
+            );
+            Text: "Group:";
+            Anchor: (Width: 60, Vertical: 0);
+          }
+
+          $C.@TextField #GroupNameField {
+            Anchor: (Height: 32, Width: 220);
+            PlaceholderText: "Enter group name";
+          }
+
+          TextButton #AddGroupButton {
+            Anchor: (Left: 12, Height: 28);
+            Padding: (Horizontal: 12, Vertical: 4);
+            Text: "Create Group";
+            Style: @CompactButtonStyle;
+          }
+        }
+
+        // Permission management
+        Group {
+          LayoutMode: Top;
+
+          Group {
+            LayoutMode: Left;
+            Anchor: (Bottom: 6);
+
+            Label {
+              Style: (
+                FontSize: 12,
+                TextColor: #96a9be,
+                VerticalAlignment: Center
+              );
+              Text: "Permission:";
+              Anchor: (Width: 80, Vertical: 0);
+            }
+
+            $C.@TextField #GroupPermissionField {
+              Anchor: (Height: 32, Width: 300);
+              PlaceholderText: "Enter permission";
+            }
+          }
+
+          Group {
+            LayoutMode: Left;
+            Padding: (Left: 80);
+
+            TextButton #AddGroupPermissionButton {
+              Anchor: (Height: 28);
+              Padding: (Horizontal: 12, Vertical: 4);
+              Text: "Add Permission";
+              Style: @CompactButtonStyle;
+            }
+
+            TextButton #RemoveGroupPermissionButton {
+              Anchor: (Left: 8, Height: 28);
+              Padding: (Horizontal: 12, Vertical: 4);
+              Text: "Remove Permission";
+              Style: @CompactButtonStyle;
+            }
+          }
+        }
+      }
+
+      // Groups list section
+      $C.@PanelTitle {
+        @Text = "Groups & Permissions";
+      }
+
+      Group #GroupList {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        Padding: (Top: 8, Left: 8, Right: 8);
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+        Group #GroupCards {
+          LayoutMode: Top;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

@@ -1,0 +1,60 @@
+$C = "../Common.ui";
+
+Button {
+  LayoutMode: Top;
+  Anchor: (Width: 180, Height: 120, Right: 12, Bottom: 12);
+  Background: $C.@InputBoxBackground;
+  Padding: (Top: 0, Bottom: 12, Left: 12, Right: 12);
+  Style: ButtonStyle(
+    Sounds: $C.@ButtonSounds,
+  );
+
+  // Colored accent bar at top
+  Group #AccentBar {
+    Anchor: (Height: 4, Top: 0, Left: 0, Right: 0);
+    Background: (Color: #4a7c59);
+  }
+
+  // Spacer after accent
+  Group {
+    Anchor: (Height: 16);
+  }
+
+  // Title
+  Label #CardTitle {
+    Style: (
+      FontSize: 16,
+      RenderBold: true,
+      RenderUppercase: true,
+      TextColor: #ffffff,
+      HorizontalAlignment: Center
+    );
+    Text: "TITLE";
+  }
+
+  // Spacer
+  Group {
+    Anchor: (Height: 8);
+  }
+
+  // Primary stat
+  Label #PrimaryStat {
+    Style: (
+      FontSize: 14,
+      RenderBold: true,
+      TextColor: #93844c,
+      HorizontalAlignment: Center
+    );
+    Text: "0 items";
+  }
+
+  // Secondary stat
+  Label #SecondaryStat {
+    Style: (
+      FontSize: 12,
+      TextColor: #96a9be,
+      HorizontalAlignment: Center
+    );
+    Text: "0 permissions";
+  }
+}

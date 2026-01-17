@@ -1,0 +1,43 @@
+$C = "../Common.ui";
+
+@CompactButtonStyle = TextButtonStyle(
+  Default: (
+    Background: (Color: #2a3a4a),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Hovered: (
+    Background: (Color: #364858),
+    LabelStyle: (FontSize: 13, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Pressed: (
+    Background: (Color: #1f2a36),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+Group {
+  LayoutMode: Left;
+  Anchor: (Height: 28, Bottom: 4);
+  Background: (Color: #000000(0.2));
+  Padding: (Vertical: 4, Horizontal: 8);
+
+  Label #PermissionName {
+    Style: (
+      FontSize: 13,
+      TextColor: #96a9be,
+      VerticalAlignment: Center
+    );
+  }
+
+  Label {
+    FlexWeight: 1;
+  }
+
+  TextButton #RemovePermissionButton {
+    Anchor: (Height: 24);
+    Padding: (Horizontal: 10, Vertical: 2);
+    Text: "Remove";
+    Style: @CompactButtonStyle;
+  }
+}

@@ -1,0 +1,92 @@
+$C = "../Common.ui";
+
+Group {
+  LayoutMode: Left;
+  Background: $C.@InputBoxBackground;
+  Anchor: (Bottom: 8);
+
+  // Blue left accent bar
+  Group {
+    Anchor: (Width: 4, Top: 0, Bottom: 0, Left: 0);
+    Background: (Color: #4a6a7c);
+  }
+
+  Group {
+    LayoutMode: Top;
+    FlexWeight: 1;
+    Padding: (Top: 10, Bottom: 10, Left: 12, Right: 12);
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 6);
+
+      Label #PlayerName {
+        Style: (
+          FontSize: 16,
+          RenderBold: true,
+          TextColor: #ffffff
+        );
+        Anchor: (Vertical: 0);
+        Padding: (Right: 10);
+      }
+
+      Label #PlayerUuid {
+        Style: (
+          FontSize: 11,
+          TextColor: #ffffff(0.3)
+        );
+        Anchor: (Vertical: 0);
+      }
+
+      Label {
+        FlexWeight: 1;
+      }
+
+      $C.@SmallSecondaryTextButton #RefreshPlayerButton {
+        Anchor: (Width: 80);
+        Text: "Refresh";
+      }
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 4);
+
+      Label {
+        Text: "Groups:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #PlayerGroups {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+    }
+
+    Group {
+      LayoutMode: Left;
+
+      Label {
+        Text: "Permissions:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #PlayerPermissions {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+    }
+  }
+}

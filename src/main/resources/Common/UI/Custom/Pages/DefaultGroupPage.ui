@@ -1,0 +1,125 @@
+$C = "../Common.ui";
+
+@CompactButtonStyle = TextButtonStyle(
+  Default: (
+    Background: (Color: #2a3a4a),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Hovered: (
+    Background: (Color: #364858),
+    LabelStyle: (FontSize: 13, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Pressed: (
+    Background: (Color: #1f2a36),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 750, Height: 600);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+
+        $C.@Title {
+          @Text = "Permissible - Default Group";
+        }
+
+        Label {
+          FlexWeight: 1;
+        }
+
+        Group #HeaderTabs {
+          LayoutMode: Left;
+          Anchor: (Vertical: 0);
+          Padding: (Right: 10);
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 12);
+
+      // Gold accent bar
+      Group {
+        Anchor: (Height: 3, Left: 0, Right: 0);
+        Background: (Color: #7c6a4a);
+      }
+
+      Group {
+        Anchor: (Height: 16);
+      }
+
+      // Current default group display
+      $C.@PanelTitle {
+        @Text = "Current Default Group";
+      }
+
+      Group {
+        Background: $C.@InputBoxBackground;
+        Padding: (Full: 12);
+        Anchor: (Top: 8, Bottom: 20, Height: 50);
+        LayoutMode: Center;
+
+        Label #CurrentDefaultGroup {
+          Style: (
+            FontSize: 18,
+            TextColor: #93844c,
+            RenderBold: true
+          );
+          Text: "Default";
+        }
+      }
+
+      // Change default group section
+      $C.@PanelTitle {
+        @Text = "Change Default Group";
+      }
+
+      Group {
+        LayoutMode: Left;
+        Anchor: (Top: 8);
+        Padding: (Left: 8);
+
+        $C.@TextField #DefaultGroupField {
+          Anchor: (Height: 32, Width: 280);
+          PlaceholderText: "New default group name";
+        }
+
+        TextButton #SaveDefaultGroupButton {
+          Anchor: (Left: 12, Height: 28);
+          Padding: (Horizontal: 16, Vertical: 4);
+          Text: "Save";
+          Style: @CompactButtonStyle;
+        }
+      }
+
+      Group {
+        FlexWeight: 1;
+      }
+
+      // Info text
+      Group {
+        Anchor: (Bottom: 8);
+        LayoutMode: Center;
+
+        Label {
+          Style: (
+            FontSize: 12,
+            TextColor: #96a9be(0.7),
+            HorizontalAlignment: Center
+          );
+          Text: "New players will automatically be assigned to the default group.";
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

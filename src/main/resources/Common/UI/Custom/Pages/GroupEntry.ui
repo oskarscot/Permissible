@@ -1,0 +1,157 @@
+$C = "../Common.ui";
+
+@CompactButtonStyle = TextButtonStyle(
+  Default: (
+    Background: (Color: #2a3a4a),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Hovered: (
+    Background: (Color: #364858),
+    LabelStyle: (FontSize: 13, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Pressed: (
+    Background: (Color: #1f2a36),
+    LabelStyle: (FontSize: 13, TextColor: #bdcbd3, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center)
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+Group {
+  LayoutMode: Left;
+  Background: $C.@InputBoxBackground;
+  Anchor: (Bottom: 8);
+
+  // Green left accent bar
+  Group {
+    Anchor: (Width: 4, Top: 0, Bottom: 0, Left: 0);
+    Background: (Color: #4a7c59);
+  }
+
+  Group {
+    LayoutMode: Top;
+    FlexWeight: 1;
+    Padding: (Top: 10, Bottom: 10, Left: 12, Right: 12);
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 4);
+
+      Label #GroupName {
+        Style: (
+          FontSize: 16,
+          TextColor: #ffffff,
+          RenderBold: true
+        );
+      }
+
+      Label {
+        FlexWeight: 1;
+      }
+
+      TextButton #DeleteGroupButton {
+        Anchor: (Height: 26);
+        Padding: (Horizontal: 12, Vertical: 2);
+        Text: "Delete";
+        Style: @CompactButtonStyle;
+      }
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 4);
+
+      Label {
+        Text: "Display:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #GroupDisplayName {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 4);
+
+      Label {
+        Text: "Weight:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #GroupWeight {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+
+      Label {
+        FlexWeight: 1;
+      }
+
+      Label {
+        Text: "Prefix:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #GroupPrefix {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Bottom: 4);
+
+      Label {
+        Text: "Suffix:";
+        Style: (
+          FontSize: 12,
+          TextColor: #93844c,
+          RenderUppercase: true
+        );
+      }
+      Label #GroupSuffix {
+        Style: (
+          FontSize: 12,
+          TextColor: #96a9be
+        );
+        Padding: (Left: 8);
+      }
+    }
+
+    Label {
+      Text: "Permissions:";
+      Style: (
+        FontSize: 12,
+        TextColor: #93844c,
+        RenderUppercase: true
+      );
+      Anchor: (Bottom: 4);
+    }
+
+    Group #PermissionsList {
+      LayoutMode: Top;
+      Padding: (Left: 8);
+    }
+  }
+}
