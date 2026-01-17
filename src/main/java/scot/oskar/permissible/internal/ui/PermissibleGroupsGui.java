@@ -249,7 +249,6 @@ public class PermissibleGroupsGui
             false);
         permissionIndex++;
       }
-      // Add delete button event binding
       eventBuilder.addEventBinding(
           CustomUIEventBindingType.Activating,
           "#GroupCards[" + index + "] #DeleteGroupButton",

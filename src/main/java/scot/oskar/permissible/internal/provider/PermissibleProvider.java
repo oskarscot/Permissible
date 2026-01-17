@@ -12,8 +12,6 @@ import scot.oskar.permissible.internal.repository.PermissionRepository;
 
 public class PermissibleProvider implements PermissionProvider {
 
-  private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
-
   private final Map<UUID, Set<String>> userPermissionsCache = new ConcurrentHashMap<>();
   private final Map<UUID, Set<String>> userGroupsCache = new ConcurrentHashMap<>();
 

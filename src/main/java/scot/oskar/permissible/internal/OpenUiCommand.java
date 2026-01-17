@@ -16,20 +16,13 @@ import scot.oskar.permissible.internal.ui.PermissibleIndexGui;
 
 public class OpenUiCommand extends AbstractPlayerCommand {
 
-
   public OpenUiCommand() {
     super("openui", "Opens Permissible UI");
+    this.requirePermission("permissible.ui.open");
   }
 
   @Override
   protected void execute(@Nonnull CommandContext commandContext, @Nonnull Store<EntityStore> store, @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-    Player player = store.getComponent(ref, Player.getComponentType());
-    CustomUIPage page = player.getPageManager().getCustomPage();
-    if (page == null) {
-      page = new PermissibleIndexGui(playerRef);
-      player.getPageManager().openCustomPage(ref, store, page);
-    }
-
-    playerRef.sendMessage(Message.raw("UI Page Shown"));
+    commandContext.sendMessage(Message.raw("Not implemented yet.."));
   }
 }

@@ -1,7 +1,10 @@
 package scot.oskar.permissible;
 
+import com.hypixel.hytale.common.plugin.PluginIdentifier;
+import com.hypixel.hytale.common.plugin.PluginManifest;
 import com.hypixel.hytale.component.ComponentRegistryProxy;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.event.events.player.PlayerChatEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
@@ -10,11 +13,13 @@ import com.hypixel.hytale.server.core.permissions.provider.PermissionProvider;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
+import com.hypixel.hytale.server.core.plugin.PluginManager;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.zaxxer.hikari.HikariConfig;
 import java.awt.Color;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import scot.oskar.permissible.api.PermissibleApi;
