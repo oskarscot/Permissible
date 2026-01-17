@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "scot.oskar.permissible.internal.PermissiblePlugin",
+    "Main": "scot.oskar.permissible.PermissiblePlugin",
     "IncludesAssetPack": true
 }
